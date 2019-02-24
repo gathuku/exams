@@ -53,7 +53,7 @@
                     <input class="form-control form-control-lg" id="pass1"  name="password"type="password" required="" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" required="" name="password_confirmation" placeholder="Confirm">
+                    <input type="password" class="form-control form-control-lg" required="" name="password_confirmation" placeholder="Confirm">
                 </div>
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
