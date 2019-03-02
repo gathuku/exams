@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="card-footer bg-white">
-                <p>Already member? <a href="#" class="text-secondary">Login Here.</a></p>
+                <p>Already member? <a href="{{route('login')}}" class="text-secondary">Login Here.</a></p>
             </div>
         </div>
     </form>
