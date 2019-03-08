@@ -14,9 +14,10 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-             <table class="table table-hover" id="sampleTable">
+             <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
+                   <th>#</th>
                    <th>Name</th>
                    <th>Email</th>
                    <th>Reg No</th>
@@ -24,12 +25,14 @@
                    <th>Course</th>
                    <th>Year</th>
                    <th>In Session</th>
+                   <th>Action</th>
                  </tr>
                </thead>
                <tbody>
 
                 @foreach($users as $user)
                  <tr>
+                   <td>#</td>
                    <td>{{$user->name}}</td>
                    <td>{{$user->email}}</td>
                    <td>{{$user->regno}}</td>
@@ -46,6 +49,13 @@
                    </td>
                    <td>{{$user->program->name}}</td>
                    <td>{{$user->year->name}}</td>
+                   <td>{{$user->in_session}}</td>
+
+                   <td>
+                   <a href="#"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
+                   <a href="#"><button class="btn btn-info"><i class="fa fa-eye"></button></i></a>
+                   <a href="#"><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></button></i></a>
+                   </td>
                  </tr>
                  @endforeach
 
@@ -56,4 +66,5 @@
        </div>
      </div>
    </main>
+
    @endsection
