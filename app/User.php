@@ -45,7 +45,7 @@ class User extends Authenticatable
 
      public function year()
      {
-       return $this->belongsTo('App\Year');a
+       return $this->belongsTo('App\Year');
      }
 
 }

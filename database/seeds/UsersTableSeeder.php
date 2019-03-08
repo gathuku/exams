@@ -11,25 +11,28 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker=Faker::create();
+      //  $faker=Faker::create();
         DB::table('users')->delete();
-        DB::table('users')->insert([
+        DB::table('users')->insert(
+
+          array(
 
           0=> array(
             'id' => 1,
             'role_id' => 1,
             'name' => 'Moses gathuku',
-            'email' => 'gathuku@biokod.co.ke',
+            'email' => 'gathuku@biodkod.co.ke',
             'regno' => 'IN14/20358/15',
-            'phone' => '0705112855'
-            'type' => 'GSS'
+            'phone' => '0705112855',
+            'type' => 'GSS',
+            'in_session' =>false,
             'program_id' => 1,
             'faculty_id' => 1,
             'year_id' =>1,
             'avatar' =>null,
             'email_verified_at' =>null,
             'password' => bcrypt('password'),
-           );
+          ),
 
            1 => array(
              'id' => 2,
@@ -37,15 +40,16 @@ class UsersTableSeeder extends Seeder
              'name' => 'Daniel Gitau',
              'email' => 'danielgitau@gmail.com',
              'regno' => 'IN14/20380/15',
-             'phone' => '0705112855'
-             'type' => 'GSS'
+             'phone' => '0705112855',
+             'type' => 'GSS',
+             'in_session' =>false,
              'program_id' => 1,
              'faculty_id' => 1,
              'year_id' =>1,
              'avatar' =>null,
              'email_verified_at' =>null,
              'password' => bcrypt('password'),
-            );
+           ),
 
             2 => array(
               'id' => 3,
@@ -53,15 +57,16 @@ class UsersTableSeeder extends Seeder
               'name' => 'Caroline Jepkorir',
               'email' => 'jepkorir@gmail.com',
               'regno' => 'IN14/20350/15',
-              'phone' => '0705112855'
-              'type' => 'GSS'
+              'phone' => '0705112855',
+              'type' => 'GSS',
+              'in_session' =>false,
               'program_id' => 1,
               'faculty_id' => 1,
               'year_id' =>1,
               'avatar' =>null,
               'email_verified_at' =>null,
               'password' => bcrypt('password'),
-            );
+            ),
 
             3 => array(
               'id' => 4,
@@ -69,15 +74,16 @@ class UsersTableSeeder extends Seeder
               'name' => 'Nicolus Mariga',
               'email' => 'mariga@gmail.com',
               'regno' => 'IN14/20351/15',
-              'phone' => '0707837363'
-              'type' => 'GSS'
+              'phone' => '0707837363',
+              'type' => 'GSS',
+              'in_session' =>false,
               'program_id' => 1,
               'faculty_id' => 1,
               'year_id' =>1,
               'avatar' =>null,
               'email_verified_at' =>null,
               'password' => bcrypt('password'),
-            );
+            ),
 
             4 => array(
               'id' => 5,
@@ -85,17 +91,18 @@ class UsersTableSeeder extends Seeder
               'name' => 'Dennis kioko',
               'email' => 'kioko@gmail.com',
               'regno' => 'IN14/20353/15',
-              'phone' => '0705112855'
-              'type' => 'GSS'
+              'phone' => '0705112855',
+              'type' => 'GSS',
+              'in_session' =>false,
               'program_id' => 1,
               'faculty_id' => 1,
               'year_id' =>1,
               'avatar' =>null,
               'email_verified_at' =>null,
               'password' => bcrypt('password'),
-            );
-            
+            ),
 
-        ]);
+          )
+        );
     }
 }

@@ -17,8 +17,8 @@ class CreateSemestersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('year_id');
             $table->string('name');
-            $table->date('exam_date');
-            $table->boolean('status');
+            $table->string('exam_date');
+            $table->boolean('current')->default(false);
             $table->timestamps();
         });
     }

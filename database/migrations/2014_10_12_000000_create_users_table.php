@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('regno')->unique()->nullable();
             $table->string('phone')->nullable();
             $table->string('type')->nullable();
+            $table->boolean('in_session')->default(false);
             $table->unsignedInteger('program_id')->nullable();
             $table->unsignedInteger('faculty_id')->nullable();
             $table->unsignedInteger('year_id')->nullable();

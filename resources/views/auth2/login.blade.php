@@ -33,6 +33,9 @@
     <!-- login page  -->
     <!-- ============================================================== -->
     <div class="splash-container">
+          @include('partials.error')
+          @include('partials.success')
+          
         <div class="card ">
             <div class="card-header text-center"><a href="/"><img class="logo-img" src="{{asset('/assets/images/kisii.jpeg')}}" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
