@@ -28,7 +28,7 @@
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="/user/{{Auth()->user()->id}}"><i class="fa fa-user fa-lg"></i> Profile</a></li>
             <li><a class="dropdown-item" href="{{route('logout')}}"
              onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();
@@ -49,16 +49,17 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
+        <img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
         <div>
           <p class="app-sidebar__user-name">{{auth()->user()->name}}</p>
           <p class="app-sidebar__user-designation">{{auth()->user()->email}}</p>
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item active" href="{{route('home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user-circle-o"></i><span class="app-menu__label">Students</span></a></li>
+        <li><a class="app-menu__item" href="/user"><i class="app-menu__icon fa fa-user-circle-o"></i><span class="app-menu__label">Students</span></a></li>
       <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-clone"></i><span class="app-menu__label">Semesters</span></a></li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Exams</span></a></li>
           <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-calendar-minus-o"></i><span class="app-menu__label">Units</span></a></li>

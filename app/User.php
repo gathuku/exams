@@ -27,4 +27,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function getGravatarAttribute()
+     {
+       $hash = md5(strtolower(trim($this->attributes['email']))).'?s=40d';
+       return "http://www.gravatar.com/avatar/$hash";
+     }
+
+     public function program()
+     {
+      return $this->belongsTo('App\Programme');
+     }
+
+     public function faculty()
+     {
+       return $this->belongsTo('App\Faculty');
+     }
+
+     public function year()
+     {
+       return $this->belongsTo('App\Year');a
+     }
+
 }
