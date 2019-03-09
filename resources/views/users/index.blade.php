@@ -7,7 +7,8 @@
 
        </div>
        <ul class="app-breadcrumb breadcrumb side">
-         <button class="btn btn-primary" type="button" name="button">New</button>
+         <a href="{{route('user.create')}}"> <button class="btn btn-primary" type="button" name="button">New</button></a>
+
        </ul>
      </div>
      <div class="row">

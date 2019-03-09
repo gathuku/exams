@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
+Use App\Programme;
+Use App\Faculty;
+use App\Year;
 use Illuminate\Http\Request;
+use Illuminate\Http\Support\Facades\Mail;
+use App\Mail\UserCreated;
+use Auth;
 
 class UserController extends Controller
 {
@@ -26,7 +32,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
+       $programmes=Programme::all();
+       $years=Year::all();
+       $faculties=Faculty::all();
+      //  return view('users.create', compact('programmes'),compact('years'),compact('faculties'));
+        return view('users.create',['programmes'=>$programmes, 'years'=>$years, 'faculties'=>$faculties]);
     }
 
     /**
@@ -37,7 +48,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  dd($request);
+        $validate=$request->validate([
+          'name' => 'required|string',
+          'regno' => 'required',
+          'email' => 'required|email',
+           'faculty' =>'required',
+          'programme' => 'required',
+          'year' => 'required'
+        ]);
+
+        if (Auth::check()) {
+          $storestudent=User::create([
+            'name' =>$request->input('name'),
+            'regno' =>$request->input('regno'),
+            'email' =>$request->input('email'),
+            'faculty_id'=>$request->input('faculty'),
+            'program_id' =>$request->input('programme'),
+            'year_id' =>$request->input('year'),
+            'password' =>bcrypt('secret')
+          ]);
+
+          //send email
+          flash('User Created')->success();
+          \Mail::to($request->input('email'))->send(new UserCreated());
+
+
+          return back();
+        }
     }
 
     /**
