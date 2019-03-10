@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Semester;
 use Illuminate\Http\Request;
+use App\Year;
 
 class SemesterController extends Controller
 {
@@ -14,7 +15,9 @@ class SemesterController extends Controller
      */
     public function index()
     {
-        //
+        $semester=Semester::all();
+
+        return view('semester.index',compact('semester'));
     }
 
     /**
@@ -24,7 +27,8 @@ class SemesterController extends Controller
      */
     public function create()
     {
-        //
+        $years=Year::all();
+        return view('semester.create',compact('years'));
     }
 
     /**
@@ -35,7 +39,31 @@ class SemesterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    //  dd($request);
+        $validate=$request->validate([
+            'name' => 'required',
+            'year' => 'required',
+            'examDate' => 'required',
+            'current' => 'required',
+        ]);
+
+        if ($request->input('current') == 'on') {
+          $current=1;
+        }else {
+          $current=0;
+        }
+
+        if ($validate) {
+          $store=Semester::create([
+            'name'=>$request->input('name'),
+            'year_id'=>$request->input('year'),
+            'exam_date'=>$request->input('examDate'),
+            'current' =>$current,
+          ]);
+
+          flash('Semester created')->success()->important();
+          return redirect()->route('semester.index');
+        }
     }
 
     /**
@@ -57,7 +85,8 @@ class SemesterController extends Controller
      */
     public function edit(Semester $semester)
     {
-        //
+        $years=Year::all();
+        return view('semester.edit', compact('semester','years'));
     }
 
     /**
@@ -69,7 +98,22 @@ class SemesterController extends Controller
      */
     public function update(Request $request, Semester $semester)
     {
-        //
+
+      if ($request->input('current') == 'on') {
+        $current=1;
+      }else {
+        $current=0;
+      }
+
+        $updateSemester=Semester::where('id',$semester->id)->update([
+          'name'=>$request->input('name'),
+          'year_id'=>$request->input('year'),
+          'exam_date'=>$request->input('examDate'),
+          'current' =>$current,
+        ]);
+
+        flash('Semester updated')->success()->important();
+        return redirect()->route('semester.index');
     }
 
     /**

@@ -32,4 +32,6 @@ class CreateSemestersTable extends Migration
     {
         Schema::dropIfExists('semesters');
     }
+
+
 }
