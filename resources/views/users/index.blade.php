@@ -11,6 +11,11 @@
 
        </ul>
      </div>
+
+     @include('partials.error')
+     @include('partials.success')
+     @include('flash::message')
+     
      <div class="row">
        <div class="col-md-12">
          <div class="tile">
@@ -53,7 +58,7 @@
                    <td>{{$user->in_session}}</td>
 
                    <td>
-                   <a href="#"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
+                   <a href="/user/{{$user->id}}/edit"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
                    <a href="#"><button class="btn btn-info"><i class="fa fa-eye"></button></i></a>
                    <a href="#"><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></button></i></a>
                    </td>

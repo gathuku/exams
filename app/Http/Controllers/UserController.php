@@ -98,7 +98,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+      $programmes=Programme::all();
+      $years=Year::all();
+      $faculties=Faculty::all();
+        return view('users.edit',compact('user','programmes','years','faculties'));
     }
 
     /**
@@ -110,7 +113,28 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+      $validate=$request->validate([
+        'name' => 'required|string',
+        'regno' => 'required',
+        'email' => 'required|email',
+         'faculty' =>'required',
+        'programme' => 'required',
+        'year' => 'required'
+      ]);
+
+      $updateUser=User::where('id',$user->id)->update([
+        'name' =>$request->input('name'),
+        'regno' =>$request->input('regno'),
+        'email' =>$request->input('email'),
+        'faculty_id'=>$request->input('faculty'),
+        'program_id' =>$request->input('programme'),
+        'year_id' =>$request->input('year'),
+        'password' =>bcrypt('secret')
+      ]);
+
+      flash('User updated')->success();
+      return  redirect()->route('user.index');
+
     }
 
     /**
