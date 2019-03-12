@@ -98,6 +98,13 @@ class SemesterController extends Controller
      */
     public function update(Request $request, Semester $semester)
     {
+      $validate=$request->validate([
+          'name' => 'required',
+          'year' => 'required',
+          'examDate' => 'required',
+          
+      ]);
+
 
       if ($request->input('current') == 'on') {
         $current=1;
