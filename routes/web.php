@@ -23,5 +23,8 @@ Route::resources([
   'user' => 'UserController',
   'semester' => 'SemesterController',
   'exam' => 'ExamController',
+  'unit' => 'UnitController',
 
 ]);
+
+Route::post('/unit/change','UnitController@unitChange')->name('unit-change');
