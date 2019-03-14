@@ -24,7 +24,9 @@ Route::resources([
   'semester' => 'SemesterController',
   'exam' => 'ExamController',
   'unit' => 'UnitController',
+  'registerunit' => 'RegisterunitController',
 
 ]);
 
 Route::post('/unit/change','UnitController@unitChange')->name('unit-change');
+Route::post('/unit/register','RegisterunitController@saveUnits')->name('unit-register');

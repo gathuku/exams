@@ -32,7 +32,9 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        $courses=Programme::all();
+        flash('welcome, you can create a new unit here...')->info();
+        return view('unit.create',compact('courses'));
     }
 
     /**
@@ -43,7 +45,26 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'course' => 'required',
+          'name' => 'required',
+          'code' => 'required',
+          'hours' => 'required',
+          'year' => 'required'
+        ]);
+
+        if(Auth::check()){
+          $createUnit=Unit::create([
+            'course' => $request['course'],
+            'name' => $request['name'],
+            'code' => $request['code'],
+            'hours' => $request['hours'],
+            'year' => $request['year'],
+          ]);
+        }
+
+        flash('Unit created')->success();
+        return redirect()->route('unit.index');
     }
 
     /**

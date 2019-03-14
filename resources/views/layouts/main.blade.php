@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <!-- Font-icon css-->
@@ -60,12 +63,12 @@
         <li><a class="app-menu__item active" href="{{route('home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
         <li><a class="app-menu__item" href="/user"><i class="app-menu__icon fa fa-user-circle-o"></i><span class="app-menu__label">Students</span></a></li>
-      <li><a class="app-menu__item" href="/semester"><i class="app-menu__icon fa fa-clone"></i><span class="app-menu__label">Semesters</span></a></li>
-        <li><a class="app-menu__item" href="/exam"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Exams</span></a></li>
-          <li><a class="app-menu__item" href="/unit"><i class="app-menu__icon fa fa-calendar-minus-o"></i><span class="app-menu__label">Units</span></a></li>
-            <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-id-card"></i><span class="app-menu__label">Exam card</span></a></li>
+              <li><a class="app-menu__item" href="/semester"><i class="app-menu__icon fa fa-clone"></i><span class="app-menu__label">Semesters</span></a></li>
+              <li><a class="app-menu__item" href="/exam"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Exams</span></a></li>
+              <li><a class="app-menu__item" href="/unit"><i class="app-menu__icon fa fa-calendar-minus-o"></i><span class="app-menu__label">Units</span></a></li>
+              <li><a class="app-menu__item" href="/mark"><i class="app-menu__icon fa fa-id-card"></i><span class="app-menu__label">Exam marks</span></a></li>
               <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Transcripts</span></a></li>
-
+                <li><a class="app-menu__item" href="/registerunit"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Register units</span></a></li>
 
       </ul>
     </aside>
@@ -79,9 +82,50 @@
     <script src="{{asset('js/plugins/pace.min.js')}}"></script>
     <!-- Page specific javascripts-->
     <!-- Data table plugin-->
-    <script type="text/javascript" src="asset('js/plugins/jquery.dataTables.min.js')"></script>
-    <script type="text/javascript" src="asset(js/plugins/dataTables.bootstrap.min.js)"></script>
-    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+
+
+
+<!--Register units javascript -->
+
+    <script type="text/javascript">
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    document.getElementById('register_unit').addEventListener('click', function(){
+
+    const selected =[];
+
+    $(document).ready(function() {
+
+      $("input:checkbox[name=check]:checked").each(function() {
+           selected.push($(this).val());
+      });
+
+      
+      $.ajax({
+      type: "POST",
+      url: '/unit/register',
+      data:{selected},
+      cache: false,
+      success: function(data){
+          //alert(data);
+      }
+      });
+
+
+
+    });
+    });
+
+
+
+
+    </script>
+
 
     <script type="text/javascript" src="{{asset('js/plugins/chart.js')}}"></script>
     <script type="text/javascript">
