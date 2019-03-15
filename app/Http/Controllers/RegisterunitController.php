@@ -19,11 +19,26 @@ class RegisterunitController extends Controller
      */
     public function index()
     {
+
         $units=Unit::where('program_id',Auth::user()->program->id)->get();
 
-      //  dd($units);
+        $currentSem=Semester::where('current',1)->value('id');
+        $registeredUnitsID=Registerunit::where('regno',Auth::user()->regno)
+                                      ->where('semester_id',$currentSem)
+                                      ->get();
 
-      return view('registerunit.index', compact('units'));
+         $registeredUnits=collect([]);
+
+         foreach ($registeredUnitsID as $registeredID) {
+
+          $unitID=$registeredID->unit_id;
+          $registered=Unit::where('id',$unitID)->get();
+          $registeredUnits->push($registered);
+         }
+
+        
+
+      return view('registerunit.index', compact('units','registeredUnits'));
 
     }
 

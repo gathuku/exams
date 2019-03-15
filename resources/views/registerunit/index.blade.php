@@ -13,6 +13,47 @@
      @include('partials.success')
      @include('flash::message')
 
+     <div class="tile">
+       <div class="tile-body">
+         <table class="table table-hover " id="sampleTable">
+           <thead>
+             <tr>
+
+               <strong>Registered Units</strong>
+             </tr>
+             <tr>
+               <th>
+                 #
+               </th>
+               <th>Code</th>
+               <th>Unit name</th>
+               <th>hours</th>
+
+
+             </tr>
+           </thead>
+           <tbody>
+
+            @foreach($registeredUnits as $registered)
+            @foreach($registered as $unit)
+
+             <tr>
+               <td>
+                #
+               </td>
+               <td>{{$unit->code}}</td>
+               <td>{{$unit->name}}</td>
+               <td>{{$unit->hours}}</td>
+
+             </tr>
+              @endforeach
+             @endforeach
+
+           </tbody>
+         </table>
+       </div>
+
+     </div>
      <div class="row">
        <div class="col-md-12">
          <div class="">

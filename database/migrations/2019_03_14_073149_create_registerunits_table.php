@@ -18,7 +18,6 @@ class CreateRegisterunitsTable extends Migration
             $table->string('regno');
             $table->string('unit_id');
             $table->string('semester_id')->nullable();
-
             $table->timestamps();
         });
     }
