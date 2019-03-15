@@ -11,4 +11,9 @@ class Registerunit extends Model
       'unit_id',
       'semester_id',
     ];
+
+    public function unit()
+    {
+      return $this->belongsTo('App\Unit');
+    }
 }

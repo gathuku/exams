@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegisterunitsTable extends Migration
+class CreateMarksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateRegisterunitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('registerunits', function (Blueprint $table) {
+        Schema::create('marks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('regno');
-            $table->string('unit_id');
-            $table->string('semester_id')->nullable();
-            $table->integer('mark')->default(0);
-            $table->string('grade')->default('-');
-            $table->string('comment')->nullable();
+            $table->integer('unit_id')->unsigned();
+            $table->integer('marks');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateRegisterunitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registerunits');
+        Schema::dropIfExists('marks');
     }
 }

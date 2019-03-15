@@ -36,7 +36,7 @@ class RegisterunitController extends Controller
           $registeredUnits->push($registered);
          }
 
-        
+
 
       return view('registerunit.index', compact('units','registeredUnits'));
 
@@ -127,5 +127,6 @@ class RegisterunitController extends Controller
        }
 
       flash('Units Registered')->success();
+    //  return redirect('/registerunit');
     }
 }

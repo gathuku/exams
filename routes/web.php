@@ -25,6 +25,7 @@ Route::resources([
   'exam' => 'ExamController',
   'unit' => 'UnitController',
   'registerunit' => 'RegisterunitController',
+  'mark' => 'MarkController',
 
 ]);
 
