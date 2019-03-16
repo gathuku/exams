@@ -40,9 +40,43 @@ class MarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function calculateGrade($mark)
+    {
+
+        if ($mark >= 70) {
+          return 'A';
+        }else if($mark <70 && $mark >=60){
+          return 'B';
+        }else if($mark <60 && $mark >=50){
+          return 'C';
+        }else if($mark <50 && $mark >=40){
+          return 'D';
+        }else{
+          return 'F';
+        }
+      return '-';
+    }
+
     public function store(Request $request)
     {
-        //
+
+      foreach ($request->all() as $key => $value) {
+
+         if(is_int($key)){
+
+           //Update marks
+           $updateMarks=Registerunit::where('id',$key)->update([
+             'mark'=>$value,
+             'grade' =>$this->calculateGrade($value),
+           ]);
+         }
+      }
+
+      flash('Marks updated')->success();
+      return back();
+
+
     }
 
     /**
