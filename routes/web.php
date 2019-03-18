@@ -31,3 +31,7 @@ Route::resources([
 
 Route::post('/unit/change','UnitController@unitChange')->name('unit-change');
 Route::post('/unit/register','RegisterunitController@saveUnits')->name('unit-register');
+
+//transcript
+Route::get('/transcript/download','PdfController@generateTranscript')->name('download-transcript');
+Route::get('test','PdfController@pdf');

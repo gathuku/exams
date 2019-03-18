@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Mark;
 use App\Programme;
 use App\Registerunit;
+use App\User;
+use App\Notifications\MarkEntered;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
 
 class MarkController extends Controller
 {
@@ -70,6 +73,14 @@ class MarkController extends Controller
              'mark'=>$value,
              'grade' =>$this->calculateGrade($value),
            ]);
+           //Send Notifications
+           $regno=Registerunit::where('id',$key)->value('regno');
+           $user=User::where('regno',$regno)->get()->toArray();
+
+          // dd($user[0]['email']);
+
+           \Notification::route('mail',$user[0]['email'])
+                         ->notify(new MarkEntered($value));
          }
       }
 
