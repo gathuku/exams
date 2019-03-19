@@ -34,4 +34,5 @@ Route::post('/unit/register','RegisterunitController@saveUnits')->name('unit-reg
 
 //transcript
 Route::get('/transcript/download','PdfController@generateTranscript')->name('download-transcript');
-Route::get('test','PdfController@pdf');
+Route::get('/transcript','PdfController@transcript');
+Route::post('/transcript/view','PdfController@viewTanscript')->name('view-transcript');
