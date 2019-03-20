@@ -38,7 +38,7 @@
                  </tr>
                </thead>
                <tbody>
-
+                @admin
                 @foreach($retakes as $retake)
 
 
@@ -56,6 +56,7 @@
                  </tr>
 
                  @endforeach
+                 @endadmin
 
                </tbody>
              </table>
