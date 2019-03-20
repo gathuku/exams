@@ -38,4 +38,5 @@ Route::get('/transcript','PdfController@transcript');
 Route::post('/transcript/view','PdfController@viewTanscript')->name('view-transcript');
 
 //retake routes
-Route::get('retakes','RegisterunitController@loadRetakes')->name('load-retakes');
+Route::get('/retakes','RegisterunitController@loadRetakes')->name('load-retakes');
+Route::get('/retakes/apply','RegisterunitController@applyRetakes')->name('apply-retakes');

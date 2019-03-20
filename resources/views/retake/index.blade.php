@@ -33,19 +33,24 @@
                    <th>Regno</th>
                    <th>unit</th>
                    <th>Grade</th>
+                   <th>Action</th>
                  </tr>
                </thead>
                @student
-              
+
                <tbody>
                 @foreach($retakesUser as $retake)
                  <tr>
                    <td>#</td>
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
-
                    <td>{{$retake->grade}}</td>
+                    <td>
+                      <a href="{{route('apply-retakes')}}">
+                        <button class="btn btn-success" type="button" name="button">Apply</button>
+                      </a>
 
+                    </td>
 
                  </tr>
 

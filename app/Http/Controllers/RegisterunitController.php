@@ -141,4 +141,9 @@ class RegisterunitController extends Controller
 
       return view('retake.index', compact('retakes','retakesUser'));
     }
+
+    public function applyRetakes()
+    {
+      return view('retake.apply');
+    }
 }
