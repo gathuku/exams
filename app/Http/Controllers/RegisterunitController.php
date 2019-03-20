@@ -134,7 +134,11 @@ class RegisterunitController extends Controller
     public function loadRetakes()
     {
       $retakes=Registerunit::where('grade','F')->get();
+      $retakesUser=Registerunit::where('grade','F')
+                                 ->where('regno',auth()->user()->regno)->get();
 
-      return view('retake.index', compact('retakes'));
+
+
+      return view('retake.index', compact('retakes','retakesUser'));
     }
 }

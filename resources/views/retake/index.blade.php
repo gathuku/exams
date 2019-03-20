@@ -25,40 +25,48 @@
             <br>
             <br>
 
+
              <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
                    <th>#</th>
                    <th>Regno</th>
                    <th>unit</th>
-                   <th>mark</th>
                    <th>Grade</th>
-
-
                  </tr>
                </thead>
+               @student
+              
                <tbody>
-                @admin
-                @foreach($retakes as $retake)
-
-
+                @foreach($retakesUser as $retake)
                  <tr>
                    <td>#</td>
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
-                   <td>
 
-
-                   </td>
                    <td>{{$retake->grade}}</td>
 
 
                  </tr>
 
                  @endforeach
-                 @endadmin
-
                </tbody>
+               @else
+               <tbody>
+                @foreach($retakes as $retake)
+                 <tr>
+                   <td>#</td>
+                   <td>{{$retake->regno}}</td>
+                   <td>{{$retake->unit->name}}</td>
+
+                   <td>{{$retake->grade}}</td>
+
+
+                 </tr>
+
+                 @endforeach
+               </tbody>
+               @endstudent
              </table>
 
            </div>
