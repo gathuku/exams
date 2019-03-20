@@ -39,45 +39,31 @@
                </thead>
                <tbody>
 
-                @foreach($registeredUnit as $value)
+                @foreach($retakes as $retake)
 
 
                  <tr>
                    <td>#</td>
-                   <td>{{$value->regno}}</td>
-                   <td>{{$value->unit->name}}</td>
+                   <td>{{$retake->regno}}</td>
+                   <td>{{$retake->unit->name}}</td>
                    <td>
 
 
                    </td>
-                   <td>{{$value->grade}}</td>
+                   <td>{{$retake->grade}}</td>
 
 
                  </tr>
-
 
                  @endforeach
 
                </tbody>
              </table>
-            
+
            </div>
          </div>
        </div>
      </div>
    </main>
-   {{--
-   <script type="text/javascript">
-     var input=document.querySelectorAll('.mark_input');
-     const marks=[];
 
-     for(var i=0;i<input.length;i++){
-            console.log(input[i].id)
-
-            });
-     }
-
-
-   </script>
-   --}}
    @endsection

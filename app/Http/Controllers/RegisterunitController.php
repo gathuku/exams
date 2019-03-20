@@ -129,4 +129,12 @@ class RegisterunitController extends Controller
       flash('Units Registered')->success();
     //  return redirect('/registerunit');
     }
+
+
+    public function loadRetakes()
+    {
+      $retakes=Registerunit::where('grade','F')->get();
+
+      return view('retake.index', compact('retakes'));
+    }
 }

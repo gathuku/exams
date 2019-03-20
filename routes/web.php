@@ -36,3 +36,6 @@ Route::post('/unit/register','RegisterunitController@saveUnits')->name('unit-reg
 Route::get('/transcript/download','PdfController@generateTranscript')->name('download-transcript');
 Route::get('/transcript','PdfController@transcript');
 Route::post('/transcript/view','PdfController@viewTanscript')->name('view-transcript');
+
+//retake routes
+Route::get('retakes','RegisterunitController@loadRetakes')->name('load-retakes');
