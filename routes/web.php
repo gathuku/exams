@@ -40,3 +40,6 @@ Route::post('/transcript/view','PdfController@viewTanscript')->name('view-transc
 //retake routes
 Route::get('/retakes','RegisterunitController@loadRetakes')->name('load-retakes');
 Route::get('/retakes/apply','RegisterunitController@applyRetakes')->name('apply-retakes');
+
+//Payment Routes
+Route::get('/retakes/payment','PaymentController@mpesaExpress')->name('pay-retakes');

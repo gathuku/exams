@@ -18,6 +18,19 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
+             <h4 class="text-success">Payment with Mpesa</h4>
+             <div class="row">
+               <div class="col-md-5">
+                 <a href="{{route('pay-retakes')}}">
+                   <button class="btn btn-success" type="button" name="button">Mpesa Express</button>
+                 </a>
+
+               </div>
+               <div class="col-md-5">
+                 <h4>Image</h4>
+               </div>
+
+             </div>
 
 
 
