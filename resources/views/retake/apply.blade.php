@@ -18,16 +18,29 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-             <h4 class="text-success">Payment with Mpesa</h4>
+
              <div class="row">
-               <div class="col-md-5">
-                 <a href="{{route('pay-retakes')}}">
-                   <button class="btn btn-success" type="button" name="button">Mpesa Express</button>
-                 </a>
+               <div class="col-md-5 text-center">
+
+                 <form class="" action="{{route('pay-retakes')}}" method="post">
+                   <h4 class="text-success">Payment with Mpesa</h4>
+                   <div class="form-group">
+                     <label for=""> Confirm Mpesa number</label>
+                     <input class="form-control" type="text" name="" value="{{auth()->user()->phone}}">
+                   </div>
+                   <div class="form-group">
+                     <input class="form-control btn btn-info" type="submit" name="" value="Request Payment">
+                   </div>
+
+                 </form>
+
 
                </div>
                <div class="col-md-5">
-                 <h4>Image</h4>
+
+                  <img class="border border-info" src="{{asset('/assets/images/mpesa.jpg')}}" alt="" style="height:40em">
+
+
                </div>
 
              </div>

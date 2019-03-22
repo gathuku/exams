@@ -20,43 +20,43 @@ return [
     |The paybill number
     |------------------------------------------
     */
-    'paybill'         => 601380,
+    'paybill'         =>600577,
 
     /*-----------------------------------------
     |The Lipa Na Mpesa Paybill Number SGA key
     |------------------------------------------
     */
-    'lipa_na_mpesa'  => '',
+    'lipa_na_mpesa'  => '174379',
 
     /*-----------------------------------------
     |Lipa Na Mpesa online checkout password
     |------------------------------------------
     */
-    'lipa_na_mpesa_key' => '',
+    'lipa_na_mpesa_passkey' => 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
 
     /*-----------------------------------------
     |Initiator Username.
     |------------------------------------------
     */
-    'initiator_username' => '',
+    'initiator_username' => 'testapi',
 
     /*-----------------------------------------
     |Initiator Password
     |------------------------------------------
     */
-    'initiator_password' => '',
+    'initiator_password' => 'Safaricom577!',
 
     /*-----------------------------------------
     |Test phone Number
     |------------------------------------------
     */
-    'test_msisdn ' => '',
+    'test_msisdn ' => '254708374149',
 
     /*-----------------------------------------
     |Lipa na Mpesa Online callback url
     |------------------------------------------
     */
-    'lnmocallback' => '',
+    'lnmocallback' => 'https://64aa0640.ngrok.io/api/lnmocallback?key=8339938339383',
 
      /*-----------------------------------------
     |C2B  Validation url
