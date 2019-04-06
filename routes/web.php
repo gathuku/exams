@@ -42,4 +42,4 @@ Route::get('/retakes','RegisterunitController@loadRetakes')->name('load-retakes'
 Route::get('/retakes/apply','RegisterunitController@applyRetakes')->name('apply-retakes');
 
 //Payment Routes
-Route::get('/retakes/payment','PaymentController@mpesaExpress')->name('pay-retakes');
+Route::post('/retakes/payment','PaymentController@mpesaExpress')->name('pay-retakes');

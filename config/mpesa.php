@@ -3,7 +3,7 @@
 return [
 
      //Specify the environment mpesa is running, sandbox or production
-     'mpesa_env' => 'sandbox',
+    'mpesa_env' => 'sandbox',
     /*-----------------------------------------
     |The App consumer key
     |------------------------------------------
@@ -56,7 +56,7 @@ return [
     |Lipa na Mpesa Online callback url
     |------------------------------------------
     */
-    'lnmocallback' => 'https://64aa0640.ngrok.io/api/lnmocallback?key=8339938339383',
+    'lnmocallback' => 'http://85010c92.ngrok.io/api/lnmocallback?key=8339938339383',
 
      /*-----------------------------------------
     |C2B  Validation url
