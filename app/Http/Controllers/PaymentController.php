@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Events\PaymentMade;
 use Mpesa;
+use App\Payment;
 
 class PaymentController extends Controller
 {
@@ -23,12 +25,19 @@ class PaymentController extends Controller
     public function lnmocallback(Request $request)
     {
 
-      $data=format_lmno($request->getContent());
-      
+    $data=$this->format_lmno($request->getContent());
+
+     //save to database
+    Payment::create([
+      'amount' =>$data->Amount,
+      'receipt_number'=>$data->MpesaReceiptNumber,
+      'phone'=>$data->PhoneNumber,
+      'paid_at'=>$data->TransactionDate,
+    ]);
 
     }
 
-    function format_lmno($data){
+       public  function format_lmno($data){
          //$data is the json encoded pqyload from mpesa.
         	$data = json_decode($data);
         	$tmp = $data->Body->stkCallback;
@@ -46,5 +55,6 @@ class PaymentController extends Controller
 
         	//Returns an object
         	return $master;
+
 }
 }

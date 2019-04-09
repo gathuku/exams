@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Moses gathuku',
             'email' => 'gathuku@biodkod.co.ke',
             'regno' => 'IN14/20358/15',
-            'phone' => '0705112855',
+            'phone' => '254705112855',
             'type' => 'GSS',
             'in_session' =>false,
             'program_id' => 1,
