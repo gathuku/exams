@@ -46,7 +46,7 @@
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
                    <td>{{$retake->grade}}</td>
-                   <td><span class="badge badge-info"></span> </td>
+                   <td><span class="badge badge-info"></span></td>
                    <td>
                       <a href="{{route('apply-retakes')}}">
                         <button class="btn btn-success" type="button" name="button">Apply</button>
