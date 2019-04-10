@@ -42,13 +42,13 @@
                <tbody>
                 @foreach($retakesUser as $retake)
                  <tr>
-                   <td>#</td>
+                   <td>{{$retake->id}}</td>
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
                    <td>{{$retake->grade}}</td>
                    <td><span class="badge badge-info"></span></td>
                    <td>
-                      <a href="{{route('apply-retakes')}}">
+                      <a href="/retakes/apply/{{$retake->id}}">
                         <button class="btn btn-success" type="button" name="button">Apply</button>
                       </a>
 

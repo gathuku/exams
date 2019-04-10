@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->double('amount');
             $table->string('receipt_number');
             $table->string('phone');
+            $table->integer('paid_for');
             $table->string('paid_at');
             $table->timestamps();
         });

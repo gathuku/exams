@@ -10,6 +10,7 @@ use App\Payment;
 class PaymentController extends Controller
 {
 
+   public $unitID;
     public function mpesaExpress(Request $request)
     {
        $validateData=$request->validate([
@@ -17,9 +18,11 @@ class PaymentController extends Controller
        ]);
 
       $phone=$request->input('phone');
+      $this->unitID=$request->input('unitID');
+
       $expressResponse=Mpesa::express(1,$phone,'24242524','Testing Payment');
 
-      dd($expressResponse);
+    //  dd($expressResponse);
     }
 
     public function lnmocallback(Request $request)
@@ -32,8 +35,11 @@ class PaymentController extends Controller
       'amount' =>$data->Amount,
       'receipt_number'=>$data->MpesaReceiptNumber,
       'phone'=>$data->PhoneNumber,
+      'paid_for'=>$this->unitID,
       'paid_at'=>$data->TransactionDate,
     ]);
+
+
 
     }
 

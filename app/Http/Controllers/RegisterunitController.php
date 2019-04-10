@@ -138,12 +138,12 @@ class RegisterunitController extends Controller
                                  ->where('regno',auth()->user()->regno)->get();
 
 
-
       return view('retake.index', compact('retakes','retakesUser'));
     }
 
-    public function applyRetakes()
+    public function applyRetakes($id)
     {
-      return view('retake.apply');
+
+      return view('retake.apply',['id'=>$id]);
     }
 }

@@ -26,13 +26,14 @@
                    @csrf
                    <h4 class="text-success">Payment with Mpesa</h4>
                    <div class="form-group">
+
                      <label for=""> Confirm Mpesa number</label>
                      <input name="phone" class="form-control" type="text" name="" value="{{auth()->user()->phone}}">
                    </div>
                    <div class="form-group">
                      <input class="form-control btn btn-info" type="submit" name="" value="Request Payment">
                    </div>
-
+              <input type="hidden" name="unitID" value="{{$id}}">
                  </form>
 
 

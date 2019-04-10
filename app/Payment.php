@@ -10,6 +10,7 @@ class Payment extends Model
       'amount',
       'receipt_number',
       'phone',
+      'paid_for',
       'paid_at'
     ];
 }
