@@ -13,4 +13,6 @@ class Payment extends Model
       'paid_for',
       'paid_at'
     ];
+
+  
 }

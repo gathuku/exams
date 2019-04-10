@@ -46,12 +46,19 @@
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
                    <td>{{$retake->grade}}</td>
-                   <td><span class="badge badge-info"></span></td>
                    <td>
+                     @if($retake->paid ==0)
+                     <span class="badge badge-danger">False</span>
+                     @else($retake->paid == 1)
+                      <span class="badge badge-success">True</span>
+                     @endif
+                    </td>
+                   <td>
+                      @if($retake->paid ==0)
                       <a href="/retakes/apply/{{$retake->id}}">
                         <button class="btn btn-success" type="button" name="button">Apply</button>
                       </a>
-
+                      @endif
                     </td>
 
                  </tr>

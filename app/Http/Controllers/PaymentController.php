@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use App\Events\PaymentMade;
 use Mpesa;
 use App\Payment;
+use App\Registerunit;
 
 class PaymentController extends Controller
 {
@@ -27,7 +28,7 @@ class PaymentController extends Controller
 
     public function lnmocallback(Request $request)
     {
-      
+
     $data=$this->format_lmno($request->getContent());
 
      //save to database
@@ -39,7 +40,10 @@ class PaymentController extends Controller
       'paid_at'=>$data->TransactionDate,
     ]);
 
-
+   //Update Paid to true
+    Registerunit::where('id',$this->unitID)->update([
+      'paid'=>1,
+    ]);
 
     }
 
