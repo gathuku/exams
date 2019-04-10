@@ -27,7 +27,7 @@ class PaymentController extends Controller
 
     public function lnmocallback(Request $request)
     {
-
+      
     $data=$this->format_lmno($request->getContent());
 
      //save to database

@@ -19,6 +19,7 @@ class CreateRegisterunitsTable extends Migration
             $table->string('unit_id');
             $table->string('semester_id')->nullable();
             $table->integer('mark')->default(0);
+            $table->boolean('paid')->nullable();
             $table->string('grade')->default('-');
             $table->string('comment')->nullable();
             $table->timestamps();

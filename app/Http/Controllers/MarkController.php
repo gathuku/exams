@@ -55,7 +55,7 @@ class MarkController extends Controller
           return 'C';
         }else if($mark <50 && $mark >=40){
           return 'D';
-        }else{
+        }else if($mark <40 $$ $mark>=1){
           return 'F';
         }
       return '-';

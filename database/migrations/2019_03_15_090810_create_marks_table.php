@@ -18,6 +18,7 @@ class CreateMarksTable extends Migration
             $table->string('regno');
             $table->integer('unit_id')->unsigned();
             $table->integer('marks');
+          
             $table->timestamps();
         });
     }
