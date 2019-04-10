@@ -29,7 +29,7 @@
              <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
-                   <th>#</th>
+                   <th>ID</th>
                    <th>Regno</th>
                    <th>unit</th>
                    <th>Grade</th>
@@ -69,12 +69,22 @@
                <tbody>
                 @foreach($retakes as $retake)
                  <tr>
-                   <td>#</td>
+                   <td>{{$retake->id}}</td>
                    <td>{{$retake->regno}}</td>
                    <td>{{$retake->unit->name}}</td>
-
                    <td>{{$retake->grade}}</td>
-
+                   <td>
+                     @if($retake->paid ==0)
+                     <span class="badge badge-danger">False</span>
+                     @else($retake->paid == 1)
+                      <span class="badge badge-success">True</span>
+                     @endif
+                  </td>
+                  <td>
+                    @if($retake->paid ==0)
+                    <button class="btn" type="button" name="button">Remind</button>
+                    @endif
+                  </td>
 
                  </tr>
 
