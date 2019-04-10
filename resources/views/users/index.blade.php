@@ -23,7 +23,7 @@
              <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
-                   <th>#</th>
+                   <th>ID</th>
                    <th>Name</th>
                    <th>Email</th>
                    <th>Reg No</th>
@@ -38,7 +38,7 @@
 
                 @foreach($users as $user)
                  <tr>
-                   <td>#</td>
+                   <td>{{$user->id}}</td>
                    <td>{{$user->name}}</td>
                    <td>{{$user->email}}</td>
                    <td>{{$user->regno}}</td>
@@ -60,7 +60,7 @@
                    <td>
                    <a href="/user/{{$user->id}}/edit"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
                    <a href="#"><button class="btn btn-info"><i class="fa fa-eye"></button></i></a>
-                   
+
                    </td>
                  </tr>
                  @endforeach
