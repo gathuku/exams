@@ -3,7 +3,7 @@
 <main class="app-content">
      <div class="app-title">
        <div>
-         <h1><i class="fa fa-th-list"></i>Students</h1>
+         <h1><i class="fa fa-th-list"></i> Students</h1>
 
        </div>
        <ul class="app-breadcrumb breadcrumb side">
@@ -20,14 +20,15 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-             <table class="table table-hover " id="sampleTable">
+             <table class="table table-hover " id="usersTable">
                <thead>
                  <tr>
                    <th>ID</th>
+                   <th>Avatar</th>
                    <th>Name</th>
                    <th>Email</th>
                    <th>Reg No</th>
-                   <th>Avatar</th>
+
                    <th>Course</th>
                    <th>Year</th>
                    <th>In Session</th>
@@ -39,9 +40,6 @@
                 @foreach($users as $user)
                  <tr>
                    <td>{{$user->id}}</td>
-                   <td>{{$user->name}}</td>
-                   <td>{{$user->email}}</td>
-                   <td>{{$user->regno}}</td>
                    <td>
                      @if($user->avatar == null)
                      <div class="app-sidebar__user">
@@ -53,9 +51,19 @@
                         <div>
                       @endif
                    </td>
+                   <td>{{$user->name}}</td>
+                   <td>{{$user->email}}</td>
+                   <td>{{$user->regno}}</td>
+
                    <td>{{$user->program->name}}</td>
                    <td>{{$user->year->name}}</td>
-                   <td>{{$user->in_session}}</td>
+                   <td>
+                     @if($user->in_session == 0)
+                     <span class="badge badge-danger">False</span>
+                     @else
+                     <span class="badge badge-success">True</span>
+                     @endif
+                    </td>
 
                    <td>
                    <a href="/user/{{$user->id}}/edit"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
@@ -72,5 +80,9 @@
        </div>
      </div>
    </main>
-
+   @section('scripts')
+   <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
+   <script type="text/javascript">$('#usersTable').DataTable();</script>
+   @endsection
    @endsection
