@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Session;
 use Illuminate\Http\Request;
+use Auth;
 
 class SessionController extends Controller
 {
@@ -14,7 +15,8 @@ class SessionController extends Controller
      */
     public function index()
     {
-        //
+        $sessions=Session::where('regno',Auth::user()->regno)->get();
+        return view('session.index',compact('sessions'));
     }
 
     /**

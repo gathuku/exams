@@ -76,6 +76,7 @@
 
               @endadmin
               @student
+              <li><a class="app-menu__item" href="/session"><i class="app-menu__icon fa fa-check-square-o"></i><span class="app-menu__label">Session</span></a></li>
               <li><a class="app-menu__item" href="/registerunit"><i class="app-menu__icon fa fa-sitemap"></i><span class="app-menu__label">Register units</span></a></li>
               <li><a class="app-menu__item" href="/transcript"><i class="app-menu__icon fa fa-file-pdf-o"></i><span class="app-menu__label">Transcripts</span></a></li>
               <li><a class="app-menu__item" href="/retakes"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Retakes</span></a></li>

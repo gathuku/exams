@@ -26,6 +26,7 @@ Route::resources([
   'unit' => 'UnitController',
   'registerunit' => 'RegisterunitController',
   'mark' => 'MarkController',
+  'session' => 'SessionController'
 
 ]);
 
