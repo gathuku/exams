@@ -6,7 +6,8 @@ use App\Mark;
 use App\Programme;
 use App\Registerunit;
 use App\User;
-use App\Notifications\MarkEntered;
+
+use App\Jobs\QueueNotification;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 
@@ -55,7 +56,7 @@ class MarkController extends Controller
           return 'C';
         }else if($mark <50 && $mark >=40){
           return 'D';
-        }else if($mark <40 $$ $mark>=1){
+        }else if($mark <40 && $mark>=1){
           return 'F';
         }
       return '-';
@@ -75,12 +76,12 @@ class MarkController extends Controller
            ]);
            //Send Notifications
            $regno=Registerunit::where('id',$key)->value('regno');
-           $user=User::where('regno',$regno)->get()->toArray();
+           $user=User::where('regno',$regno)->value('email');
 
-          // dd($user[0]['email']);
+           //dd($value);
+           dispatch(new QueueNotification($user,$value));
 
-           \Notification::route('mail',$user[0]['email'])
-                         ->notify(new MarkEntered($value));
+
          }
       }
 
