@@ -18,6 +18,7 @@ class SessionTableSeeder extends Seeder
             'regno' => 'IN14/20358/15',
             'year_id'=>1,
             'semester_id'=>1,
+            'status' =>false,
           ],
         ]);
     }
