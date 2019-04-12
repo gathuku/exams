@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
+   protected $table='session';
+
    protected $fillable=[
      'regno',
      'year_id',
@@ -14,11 +16,11 @@ class Session extends Model
    ];
 
    public function year(){
-     $this->belongsTo('App\Year');
+    return $this->belongsTo('App\Year');
 
    }
 
    public function semester(){
-     $this->belongsTo('App\Semester');
+    return $this->belongsTo('App\Semester');
    }
 }

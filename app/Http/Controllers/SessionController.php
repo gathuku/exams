@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Session;
 use Illuminate\Http\Request;
 use Auth;
+use App\Year;
+use App\Semester;
+use Carbon\Carbon;
 
 class SessionController extends Controller
 {
@@ -15,8 +18,13 @@ class SessionController extends Controller
      */
     public function index()
     {
+       //get the Semesters
+        $currentYear=Carbon::now()->year;
+        $yearid=Year::where('name',$currentYear)->value('id');
+        $semesters=Semester::where('year_id',$yearid)->get();
+        
         $sessions=Session::where('regno',Auth::user()->regno)->get();
-        return view('session.index',compact('sessions'));
+        return view('session.index',compact('sessions','semesters','currentYear'));
     }
 
     /**
