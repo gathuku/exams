@@ -18,39 +18,12 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-             <div class="container">
-               <div class="row">
-                 <div class="form-group col-md-3">
-                   <label for="">select Course</label>
-                   <select class="form-control" name="">
-                     <option value="">-- select --</option>
-                     @foreach($courses as $course)
-                       <option value="">{{$course->name}}</option>
-                     @endforeach
-
-                   </select>
-
-                 </div>
-
-                 <div class="form-group col-md-3">
-                   <label for="">select Course</label>
-                   <select class="form-control" name="">
-                     <option value="">-- select --</option>
-                     @foreach($courses as $course)
-                       <option value="">{{$course->name}}</option>
-                     @endforeach
-
-                   </select>
-
-                 </div>
-               </div>
-             </div>
-
+        
             <br>
             <br>
             <form class="" action="{{route('mark.store')}}" method="post">
               @csrf
-             <table class="table table-hover " id="sampleTable">
+             <table class="table table-hover " id="marksTable">
                <thead>
                  <tr>
                    <th>#</th>
@@ -92,18 +65,10 @@
        </div>
      </div>
    </main>
-   {{--
-   <script type="text/javascript">
-     var input=document.querySelectorAll('.mark_input');
-     const marks=[];
+   @section('scripts')
+   <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
+   <script type="text/javascript">$('#marksTable').DataTable();</script>
+   @endsection
 
-     for(var i=0;i<input.length;i++){
-            console.log(input[i].id)
-
-            });
-     }
-
-
-   </script>
-   --}}
    @endsection
