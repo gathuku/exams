@@ -19,7 +19,7 @@ class SemesterTableSeeder extends Seeder
             'year_id' => 1,
             'name' => 'Semester 1',
             'exam_date' => '2019-03-16 12:34:00',
-            'current' =>false,
+            'current' =>true,
           ),
 
           1 => array(

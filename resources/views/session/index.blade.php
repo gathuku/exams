@@ -17,12 +17,14 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-          
+
              <h3 class="text-success">Year: {{$currentYear}}</h3>
-             <form class="" action="#" method="post">
+             <form class="" action="{{route('session.store')}}" method="post">
+               @csrf
+               <input type="hidden" name="yearID" value="{{$yearid}}">
                <div class="form-group col-md-5">
                  <label for="">Select a Semester</label>
-                 <select class="form-control" name="">
+                 <select class="form-control" name="semester">
                    @foreach($semesters as $semester)
                    <option value="{{$semester->id}}">{{$semester->name}}</option>
                    @endforeach
@@ -50,9 +52,11 @@
 
                  </tr>
                </thead>
-               <tbody>
 
+               <tbody>
+              
                 @foreach($sessions as $session)
+
                  <tr>
                    <td>{{$session->id}}</td>
                    <td>{{$session->name}}</td>

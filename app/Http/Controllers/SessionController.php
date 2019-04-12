@@ -21,10 +21,12 @@ class SessionController extends Controller
        //get the Semesters
         $currentYear=Carbon::now()->year;
         $yearid=Year::where('name',$currentYear)->value('id');
-        $semesters=Semester::where('year_id',$yearid)->get();
-        
+        $semesters=Semester::where('year_id',$yearid)
+                                 ->where('current',true)
+                                ->get();
+
         $sessions=Session::where('regno',Auth::user()->regno)->get();
-        return view('session.index',compact('sessions','semesters','currentYear'));
+        return view('session.index',compact('sessions','semesters','currentYear','yearid'));
     }
 
     /**
@@ -45,7 +47,26 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $semesterID=$request->input('semester');
+        $now=Carbon::now();
+
+        $session=Session::where('semester_id',$semesterID)->value('semester_id');
+        if($session == $semesterID){
+          flash('You have alredy reported')->error();
+          return back();
+        }
+        $createSession=Session::create([
+          'regno'=>Auth::user()->regno,
+          'year_id'=>$request->input('yearID'),
+          'semester_id'=>$semesterID,
+          'status' => true,
+        ]);
+
+        if($createSession){
+          flash('You have reported on:'.$now)->success();
+          return back();
+        }
     }
 
     /**
