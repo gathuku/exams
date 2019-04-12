@@ -67,7 +67,7 @@ class MarkController extends Controller
 
       foreach ($request->all() as $key => $value) {
 
-         if(is_int($key)){
+         if(is_int($key) && $value !=0){
 
            //Update marks
            $updateMarks=Registerunit::where('id',$key)->update([

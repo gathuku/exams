@@ -48,7 +48,7 @@
              <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
-                   <th>#</th>
+                   <th>ID</th>
                    <th>Name</th>
                    <th>code</th>
                    <th>hours</th>
@@ -58,10 +58,11 @@
                  </tr>
                </thead>
                <tbody>
-
+               <p class="bg-info">Year 1</p>
                 @foreach($units as $unit)
+
                  <tr>
-                   <td>#</td>
+                   <td>{{$unit->id}}</td>
                    <td>{{$unit->name}}</td>
                    <td>{{$unit->code}}</td>
                    <td>{{$unit->hours}}</td>
