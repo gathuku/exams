@@ -17,18 +17,15 @@ class YearTableSeeder extends Seeder
 
           0 => array(
             'id' =>1,
-            'name' => '2018',
+            'name' => '2019',
           ),
 
           1 => array(
             'id' =>2,
-            'name' => '2019',
+            'name' => '2020',
           ),
 
-          2 => array(
-            'id' =>3,
-            'name' => '2020'
-          ),
+
         ));
     }
 }
