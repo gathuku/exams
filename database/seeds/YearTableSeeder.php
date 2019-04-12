@@ -25,7 +25,7 @@ class YearTableSeeder extends Seeder
             'name' => '2019',
           ),
 
-          0 => array(
+          2 => array(
             'id' =>3,
             'name' => '2020'
           ),
