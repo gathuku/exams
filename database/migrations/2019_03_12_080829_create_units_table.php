@@ -19,7 +19,7 @@ class CreateUnitsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('hours')->nullable();
-            $table->string('level')->nullable();
+            $table->unsignedInteger('level')->nullable();
             $table->timestamps();
         });
     }
