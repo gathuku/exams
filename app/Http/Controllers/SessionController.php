@@ -63,6 +63,11 @@ class SessionController extends Controller
           'status' => true,
         ]);
 
+        //Update in Sesion
+        User::where('id',Auth::user()->id)->update([
+          'in_session'=>true
+        ]);
+
         if($createSession){
           flash('You have reported on:'.$now)->success();
           return back();
