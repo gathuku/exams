@@ -128,6 +128,15 @@ class RegisterunitController extends Controller
        foreach ($data as $key => $value) {
         if(is_int($key)){
           //print_r($key.' '.$value.'<br>');
+
+          //Check if the units is registered
+          $theUnit=Registerunit::where('regno',Auth::user()->regno)
+                                ->where('unit_id',$value)->value('id');
+
+              if ($theUnit != null) {
+                flash('Unit Already Registered')->error();
+                return back();
+              }
           Registerunit::create([
             'regno' => Auth::user()->regno,
             'unit_id' =>$value,
