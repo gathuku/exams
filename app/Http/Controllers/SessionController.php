@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Year;
 use App\Semester;
+use App\User;
 use Carbon\Carbon;
 
 class SessionController extends Controller

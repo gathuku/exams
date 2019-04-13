@@ -23,7 +23,7 @@
              </tr>
              <tr>
                <th>
-                 #
+                 ID
                </th>
                <th>Code</th>
                <th>Unit name</th>
@@ -39,7 +39,7 @@
 
              <tr>
                <td>
-                #
+                {{$unit->id}}
                </td>
                <td>{{$unit->code}}</td>
                <td>{{$unit->name}}</td>
@@ -58,13 +58,14 @@
          <form class="" action="{{route('unit-register')}}" method="post">
 
          <div class="tile">
+           @if(auth()->user()->in_session == true)
            <div class="tile-body">
              <h4>Current Semester Units</h4>
              <table class="table table-hover">
                <thead>
                  <tr>
                    <th>
-                     ID
+                     Select
                    </th>
                    <th>Code</th>
                    <th>Unit name</th>
@@ -89,7 +90,9 @@
                </tbody>
              </table>
            </div>
-
+           @else
+           <h4 class="text-danger">Kindly Report for a session first</h4>
+           @endif
          </div>
 
          <div class="">
@@ -108,7 +111,7 @@
                  </tr>
                  <tr>
                    <th>
-                     #
+                     ID
                    </th>
                    <th>Code</th>
                    <th>Unit name</th>
@@ -148,7 +151,7 @@
                  </tr>
                  <tr>
                    <th>
-                     #
+                     ID
                    </th>
                    <th>Code</th>
                    <th>Unit name</th>
@@ -186,7 +189,7 @@
                  </tr>
                  <tr>
                    <th>
-                     #
+                     ID
                    </th>
                    <th>Code</th>
                    <th>Unit name</th>
@@ -224,7 +227,7 @@
                  </tr>
                  <tr>
                    <th>
-                     #
+                     ID
                    </th>
                    <th>Code</th>
                    <th>Unit name</th>
