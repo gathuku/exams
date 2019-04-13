@@ -36,6 +36,9 @@
         </head>
 
          <div class=" border border-success">
+           <div class="container">
+
+
            <div class="row">
              <div class="col-md-4 col-sm-4">
               {!! QrCode::size(200)->generate('moses')!!}
@@ -111,9 +114,63 @@
                @endforeach
              </tbody>
            </table>
+            <br>
+            <div class="col-md-6">
+              <p><b>Key to Grading</b></p>
+              <table class="table">
+                <tbody>
+                  <tr>
+                  <td><b>Range</b></td>
+                  <td>70 - 100</td>
+                  <td>60 - 70</td>
+                  <td>50 - 60</td>
+                  <td>40 - 50</td>
+                  <td>0 - 40</td>
+                  </tr>
+                  <tr>
+                    <td><b>Points</b></td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>F</td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+            <br>
+            <div class="col-md-8">
+              <p><b>Other Keys</b></p>
+              <table class="table">
+                <tbody>
+                  <tr>
+                  <td><b>Name</b></td>
+                  <td>Retake</td>
+                  <td>Missing Marks</td>
+                  <td>Audited unit</td>
+                  <td>Credit Transfer</td>
+                  <td>Incomplete</td>
+                  <td>Pass</td>
+                  <td>Supplementary</td>
+                  </tr>
+                  <tr>
+                    <td><b>Points</b></td>
+                    <td>*</td>
+                    <td>-</td>
+                    <td>Au</td>
+                    <td>CT</td>
+                    <td>I</td>
+                    <td>P</td>
+                    <td>SUP</td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
 
          </div>
-
+     </div>
    </div>
 
  </main>
