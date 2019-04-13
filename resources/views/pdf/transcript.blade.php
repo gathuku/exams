@@ -21,7 +21,10 @@
            </form>
 
            <br>
-           <button class="btn btn-success" type="button" name="button">Print PDF</button>
+           <a href="{{route('download-transcript')}}">
+             <button class="btn btn-success" type="button" name="button">Print PDF</button>
+           </a>
+
 
          </div>
 
