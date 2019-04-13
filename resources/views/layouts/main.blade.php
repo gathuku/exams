@@ -107,46 +107,6 @@
 
     @yield('scripts')
 
-<!--Register units javascript -->
-
-    <script type="text/javascript">
-
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-    document.getElementById('register_unit').addEventListener('click', function(){
-
-    const selected =[];
-
-    $(document).ready(function() {
-
-      $("input:checkbox[name=check]:checked").each(function() {
-           selected.push($(this).val());
-      });
-
-
-      $.ajax({
-      type: "POST",
-      url: '/unit/register',
-      data:{selected},
-      cache: false,
-      success: function(data){
-          //alert(data);
-      }
-      });
-
-
-
-    });
-    });
-
-
-
-
-    </script>
 
 
 

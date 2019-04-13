@@ -44,7 +44,6 @@
                <td>{{$unit->code}}</td>
                <td>{{$unit->name}}</td>
                <td>{{$unit->hours}}</td>
-
              </tr>
               @endforeach
              @endforeach
@@ -56,10 +55,48 @@
      </div>
      <div class="row">
        <div class="col-md-12">
-         <div class="">
-           <button id="register_unit" class="btn btn-primary" type="button" name="button">Register Selected</button>
+         <form class="" action="{{route('unit-register')}}" method="post">
+
+         <div class="tile">
+           <div class="tile-body">
+             <h4>Current Semester Units</h4>
+             <table class="table table-hover">
+               <thead>
+                 <tr>
+                   <th>
+                     ID
+                   </th>
+                   <th>Code</th>
+                   <th>Unit name</th>
+                   <th>hours</th>
+                 </tr>
+               </thead>
+               <tbody>
+
+               @foreach($currentUnits as $unit)
+
+                <tr>
+                  <td>
+                   <input id="check" class="form-control" type="checkbox" name="{{$unit->id}}" value="{{$unit->id}}">
+                  </td>
+                  <td>{{$unit->code}}</td>
+                  <td>{{$unit->name}}</td>
+                  <td>{{$unit->hours}}</td>
+
+                </tr>
+
+                @endforeach
+               </tbody>
+             </table>
+           </div>
 
          </div>
+
+         <div class="">
+           <button id="register_unit" class="btn btn-primary" type="submit" name="button">Register Selected</button>
+
+         </div>
+          </form>
          <br>
          <div class="tile">
            <div class="tile-body">
@@ -67,7 +104,7 @@
                <thead>
                  <tr>
 
-                   <strong>YEAR 1</strong>
+                   <strong class="text-primary">YEAR 1</strong>
                  </tr>
                  <tr>
                    <th>
@@ -83,10 +120,50 @@
                <tbody>
 
                 @foreach($units as $unit)
-                @if($unit->level == '1st year')
+                @if($unit->level == 0)
                  <tr>
                    <td>
-                    <input id="check" class="form-control" type="checkbox" name="check" value="{{$unit->id}}">
+                    {{$unit->id}}
+                   </td>
+                   <td>{{$unit->code}}</td>
+                   <td>{{$unit->name}}</td>
+                   <td>{{$unit->hours}}</td>
+
+                 </tr>
+                 @endif
+
+                 @endforeach
+
+               </tbody>
+             </table>
+           </div>
+
+
+           <div class="tile-body">
+             <table class="table table-hover " id="sampleTable">
+               <thead>
+                 <tr>
+
+                   <strong class="text-primary">YEAR 2</strong>
+                 </tr>
+                 <tr>
+                   <th>
+                     #
+                   </th>
+                   <th>Code</th>
+                   <th>Unit name</th>
+                   <th>hours</th>
+
+
+                 </tr>
+               </thead>
+               <tbody>
+
+                @foreach($units as $unit)
+                @if($unit->level == 1)
+                 <tr>
+                   <td>
+                  {{$unit->id}}
                    </td>
                    <td>{{$unit->code}}</td>
                    <td>{{$unit->name}}</td>
@@ -100,13 +177,12 @@
              </table>
            </div>
 
-
            <div class="tile-body">
              <table class="table table-hover " id="sampleTable">
                <thead>
                  <tr>
 
-                   <strong>YEAR 2</strong>
+                   <strong class="text-primary">YEAR 3</strong>
                  </tr>
                  <tr>
                    <th>
@@ -122,10 +198,48 @@
                <tbody>
 
                 @foreach($units as $unit)
-                @if($unit->level == '2nd year')
+                @if($unit->level == 2)
                  <tr>
                    <td>
-                    <input id="check" class="form-control" type="checkbox" name="check" value="{{$unit->id}}">
+                   {{$unit->id}}
+                   </td>
+                   <td>{{$unit->code}}</td>
+                   <td>{{$unit->name}}</td>
+                   <td>{{$unit->hours}}</td>
+
+                 </tr>
+                 @endif
+                 @endforeach
+
+               </tbody>
+             </table>
+           </div>
+
+           <div class="tile-body">
+             <table class="table table-hover " id="sampleTable">
+               <thead>
+                 <tr>
+
+                   <strong class="text-primary">YEAR 4</strong>
+                 </tr>
+                 <tr>
+                   <th>
+                     #
+                   </th>
+                   <th>Code</th>
+                   <th>Unit name</th>
+                   <th>hours</th>
+
+
+                 </tr>
+               </thead>
+               <tbody>
+
+                @foreach($units as $unit)
+                @if($unit->level == 3)
+                 <tr>
+                   <td>
+                  {{$unit->id}}
                    </td>
                    <td>{{$unit->code}}</td>
                    <td>{{$unit->name}}</td>
@@ -141,9 +255,55 @@
 
 
          </div>
+
        </div>
      </div>
    </main>
+   {{--
+  @section('scripts')
+  <!--Register units javascript -->
 
+      <script type="text/javascript">
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+      document.getElementById('register_unit').addEventListener('click', function(){
+
+      const selected =[];
+
+      $(document).ready(function() {
+
+        $("input:checkbox[name=check]:checked").each(function() {
+             selected.push($(this).val());
+        });
+
+
+        $.ajax({
+        type: "POST",
+        url: '/unit/register',
+        data:{selected},
+        cache: false,
+        success: function(data){
+            //alert(data);
+        }
+        });
+
+
+
+      });
+      });
+
+
+
+
+      </script>
+
+
+  @endsection
+  --}}
 
    @endsection

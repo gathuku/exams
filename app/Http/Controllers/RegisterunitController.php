@@ -7,6 +7,7 @@ use App\Unit;
 use App\Semester;
 use Illuminate\Http\Request;
 use Auth;
+use Carbon\Carbon;
 
 class RegisterunitController extends Controller
 {
@@ -23,6 +24,16 @@ class RegisterunitController extends Controller
         $units=Unit::where('program_id',Auth::user()->program->id)->get();
 
         $currentSem=Semester::where('current',1)->value('id');
+
+        $createdAt=Auth::user()->created_at;
+        $now=Carbon::now();
+        $level=$createdAt->diffInYears($now);
+
+        $currentUnits=Unit::where('level',$level)
+                           ->where('program_id',Auth::user()->program_id)
+                           ->get();
+
+
         $registeredUnitsID=Registerunit::where('regno',Auth::user()->regno)
                                       ->where('semester_id',$currentSem)
                                       ->get();
@@ -38,7 +49,7 @@ class RegisterunitController extends Controller
 
 
 
-      return view('registerunit.index', compact('units','registeredUnits'));
+      return view('registerunit.index', compact('units','registeredUnits','currentUnits'));
 
     }
 
@@ -112,10 +123,23 @@ class RegisterunitController extends Controller
     {
 
        $data=$request->all();
-
        $currentSem=Semester::where('current',1)->value('id');
-       //\Log::info($currentSem);
-      // \Log::info(Auth::user()->regno);
+
+       foreach ($data as $key => $value) {
+        if(is_int($key)){
+          //print_r($key.' '.$value.'<br>');
+          Registerunit::create([
+            'regno' => Auth::user()->regno,
+            'unit_id' =>$value,
+            'semester_id' => $currentSem,
+          ]);
+        }
+       }
+
+       flash('Unit Registered')->success();
+       return back();
+      /*
+       $currentSem=Semester::where('current',1)->value('id');
 
        foreach($data['selected'] as $data){
         // \Log::info($data);
@@ -128,6 +152,7 @@ class RegisterunitController extends Controller
 
       flash('Units Registered')->success();
     //  return redirect('/registerunit');
+    */
     }
 
 

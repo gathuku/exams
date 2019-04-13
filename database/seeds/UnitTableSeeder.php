@@ -20,7 +20,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Information Technology',
             'code' => 'ACMP 101',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           1 => [
             'id'=>2,
@@ -28,7 +28,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer hardware',
             'code' => 'ACMP 111',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           2 => [
             'id'=>3,
@@ -36,7 +36,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Basic mathemaics',
             'code' => 'ACMP 123',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           3 => [
             'id'=>4,
@@ -44,7 +44,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Programming [Java]',
             'code' => 'ACMP 121',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           4 => [
             'id'=>5,
@@ -52,7 +52,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Enterpreneurship',
             'code' => 'ACMP 234',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           5 =>[
             'id'=>6,
@@ -60,7 +60,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Discrete Mathematics for Computer Science',
             'code' => 'COMP 102',
             'hours' => '45',
-            'level' => '1st year',
+            'level' => 0,
           ],
           6 =>[
             'id'=>7,
@@ -68,7 +68,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Grahics design',
             'code' => 'ACMP 334',
             'hours' => '45',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           7 =>[
             'id'=>8,
@@ -76,7 +76,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Operating Systems',
             'code' => 'ACMP 113',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           8 => [
             'id'=>9,
@@ -84,7 +84,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Mathematical Methods for Computer Scientists',
             'code' => 'ACMP 203',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           9 => [
             'id'=>10,
@@ -92,7 +92,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Structural Programming Principles [C]',
             'code' => 'ACMP 224',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           10 => [
             'id'=>11,
@@ -100,7 +100,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Web Programming and Administration',
             'code' => 'ACMP 225',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           11 => [
             'id'=>12,
@@ -108,7 +108,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Program Design',
             'code' => 'ACMP 226',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           12 => [
             'id'=>13,
@@ -116,7 +116,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Artificial Intelligence',
             'code' => 'ACMP 308',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
 
           13 => [
@@ -125,7 +125,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Desktop Application & Development',
             'code' => 'ACMP 343',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
 
           14 => [
@@ -134,7 +134,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer Graphics',
             'code' => 'ACMP 344',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           15 => [
             'id'=>16,
@@ -142,7 +142,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Databases',
             'code' => 'ACMP 351',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           16 => [
             'id'=>17,
@@ -150,7 +150,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Data mining',
             'code' => 'ACMP 434',
             'hours' => '55',
-            'level' => '4th year',
+            'level' => 3,
           ],
           17 => [
             'id'=>18,
@@ -158,7 +158,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer Animation',
             'code' => 'ACMP 433',
             'hours' => '55',
-            'level' => '4th year',
+            'level' => 3,
           ],
           18 => [
             'id'=>19,
@@ -166,7 +166,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Enterpreneurship',
             'code' => 'ACMP 431',
             'hours' => '40',
-            'level' => '4th year',
+            'level' => 3,
           ],
 
           //Cource with id 2=computer Science
@@ -176,7 +176,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Information Technology',
             'code' => 'COMP 101',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           20 => [
             'id'=>21,
@@ -184,7 +184,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer hardware',
             'code' => 'COMP 111',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           21 => [
             'id'=>22,
@@ -192,7 +192,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Basic mathemaics',
             'code' => 'COMP 123',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           22 => [
             'id'=>23,
@@ -200,7 +200,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Programming [Java]',
             'code' => 'COMP 121',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           23 => [
             'id'=>24,
@@ -208,7 +208,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Enterpreneurship',
             'code' => 'COMP 234',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           24 =>[
             'id'=>25,
@@ -216,7 +216,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Discrete Mathematics for Computer Science',
             'code' => 'COMP 102',
             'hours' => '45',
-            'level' => '1st year',
+            'level' => 0,
           ],
           25 =>[
             'id'=>26,
@@ -224,7 +224,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Grahics design',
             'code' => 'COMP 334',
             'hours' => '45',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           26 =>[
             'id'=>27,
@@ -232,7 +232,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Operating Systems',
             'code' => 'COMP 113',
             'hours' => '50',
-            'level' => '1st year',
+            'level' => 0,
           ],
           27 => [
             'id'=>28,
@@ -240,7 +240,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Mathematical Methods for Computer Scientists',
             'code' => 'COMP 203',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           28 => [
             'id'=>29,
@@ -248,7 +248,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Structural Programming Principles [C]',
             'code' => 'COMP 224',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           29 => [
             'id'=>30,
@@ -256,7 +256,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Web Programming and Administration',
             'code' => 'ACMP 225',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           30 => [
             'id'=>31,
@@ -264,7 +264,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Program Design',
             'code' => 'COMP 226',
             'hours' => '50',
-            'level' => '2nd year',
+            'level' => 1,
           ],
           31 => [
             'id'=>32,
@@ -272,7 +272,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Artificial Intelligence',
             'code' => 'COMP 308',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
 
           32 => [
@@ -281,7 +281,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Desktop Application & Development',
             'code' => 'COMP 343',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
 
           33 => [
@@ -290,7 +290,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer Graphics',
             'code' => 'ACMP 344',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           34 => [
             'id'=>35,
@@ -298,7 +298,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Introduction to Databases',
             'code' => 'COMP 351',
             'hours' => '55',
-            'level' => '3rd year',
+            'level' => 2,
           ],
           35 => [
             'id'=>36,
@@ -306,7 +306,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Data mining',
             'code' => 'ACMP 434',
             'hours' => '55',
-            'level' => '4th year',
+            'level' => 3,
           ],
           36 => [
             'id'=>37,
@@ -314,7 +314,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Computer Animation',
             'code' => 'COMP 433',
             'hours' => '55',
-            'level' => '4th year',
+            'level' => 3,
           ],
           37 => [
             'id'=>38,
@@ -322,7 +322,7 @@ class UnitTableSeeder extends Seeder
             'name' => 'Enterpreneurship',
             'code' => 'COMP 431',
             'hours' => '40',
-            'level' => '4th year',
+            'level' => 3,
           ],
 
 

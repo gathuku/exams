@@ -10,6 +10,7 @@ class Unit extends Model
       'program_id',
       'name',
       'code',
-      'hours'
+      'hours',
+      'level'
     ];
 }
