@@ -25,6 +25,7 @@
                <div class="form-group col-md-5">
                  <label for="">Select a Semester</label>
                  <select class="form-control" name="semester">
+                   <option value="">-- Select Semester --</option>
                    @foreach($semesters as $semester)
                    <option value="{{$semester->id}}">{{$semester->name}}</option>
                    @endforeach
@@ -54,7 +55,7 @@
                </thead>
 
                <tbody>
-              
+
                 @foreach($sessions as $session)
 
                  <tr>
