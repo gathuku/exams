@@ -14,10 +14,10 @@
            <select id="year_select" class="form-control" name="year">
              <label for=""> Select Year</label>
              <option value="">-- select --</option>
-
-             @foreach($years as $year)
-              <option value="">{{$year->name}}</option>
-             @endforeach
+             <option value="0">1st Year</option>
+             <option value="1">2nd Year</option>
+             <option value="2">3rd Year</option>
+             <option value="3">4th Year</option>
            </select>
          </div>
 

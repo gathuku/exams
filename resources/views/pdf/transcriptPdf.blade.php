@@ -58,7 +58,24 @@
      <tr class="info">
       <td><strong>Year of study</strong> </td>
 
-      <td>2</td>
+      <td>
+        @switch($level)
+        @case(0)
+        Year 1
+        @break
+        @case(1)
+        Year 2
+        @break
+        @case(2)
+        Year 3
+        @break
+        @case(3)
+        Year 4
+        @break
+        @default
+        Not set
+        @endswitch
+      </td>
       <td></td>
       <td><strong>Date of Admission</strong> </td>
       <td>{{auth()->user()->created_at}}</td>
@@ -81,9 +98,9 @@
 
          @foreach($marks as $mark)
          <tr>
-           <td> {{$mark->unit->code}}</td>
-           <td>{{$mark->unit->name}}</td>
-           <td>{{$mark->unit->hours}}</td>
+           <td> {{$mark->code}}</td>
+           <td>{{$mark->name}}</td>
+           <td>{{$mark->hours}}</td>
            <td>{{$mark->grade}}</td>
          </tr>
          @endforeach
