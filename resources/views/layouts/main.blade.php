@@ -64,8 +64,9 @@
              @admin
              <li><a class="app-menu__item" href="/user"><i class="app-menu__icon fa fa-user-circle-o"></i><span class="app-menu__label">Students</span></a></li>
              <li><a class="app-menu__item" href="/semester"><i class="app-menu__icon fa fa-clone"></i><span class="app-menu__label">Semesters</span></a></li>
+             {{--
              <li><a class="app-menu__item" href="/exam"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Exams</span></a></li>
-
+             --}}
              <li><a class="app-menu__item" href="/unit"><i class="app-menu__icon fa fa-calendar-minus-o"></i><span class="app-menu__label">Units</span></a></li>
 
              <li><a class="app-menu__item" href="/mark"><i class="app-menu__icon fa fa-id-card"></i><span class="app-menu__label">Exam marks</span></a></li>
