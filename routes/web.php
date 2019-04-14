@@ -26,14 +26,18 @@ Route::resources([
   'unit' => 'UnitController',
   'registerunit' => 'RegisterunitController',
   'mark' => 'MarkController',
-  'session' => 'SessionController'
+  'session' => 'SessionController',
+
 
 ]);
 
 //Lecture
+
 Route::get('/lecturer','LecturerController@index')->name('lecturer.index');
 Route::get('/lecturer/create','LecturerController@create')->name('lecturer.create');
 Route::post('/lecturer/store','LecturerController@store')->name('lecturer.store');
+Route::get('/lecturer/{id}/edit','LecturerController@edit')->name('lecturer.edit');
+Route::post('/lecturer/{id}/update','LecturerController@update')->name('lecturer.update');
 
 
 
