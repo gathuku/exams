@@ -44,7 +44,7 @@ class SemesterController extends Controller
             'name' => 'required',
             'year' => 'required',
             'examDate' => 'required',
-            'current' => 'required',
+          
         ]);
 
         if ($request->input('current') == 'on') {
