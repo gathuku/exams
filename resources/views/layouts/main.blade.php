@@ -70,8 +70,8 @@
 
              <li><a class="app-menu__item" href="/mark"><i class="app-menu__icon fa fa-id-card"></i><span class="app-menu__label">Exam marks</span></a></li>
 
-              <li><a class="app-menu__item" href="/transcript"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Settings</span></a></li>
-              <li><a class="app-menu__item" href="/transcript"><i class="app-menu__icon fa fa-file-pdf-o"></i><span class="app-menu__label">Transcripts</span></a></li>
+              <li><a class="app-menu__item" href="/setting"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Settings</span></a></li>
+
               <li><a class="app-menu__item" href="/retakes"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Retakes</span></a></li>
 
               @endadmin
