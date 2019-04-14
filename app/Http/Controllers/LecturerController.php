@@ -24,7 +24,18 @@ class LecturerController extends Controller
 
     public function store(Request $request)
     {
-      dd($request->all());
+      $createLecturer=User::create([
+        'role_id' =>2,
+        'name' => $request->input('name'),
+        'email' =>$request->input('email'),
+        'faculty_id'=>$request->input('faculty'),
+        'password' =>bcrypt('password')
+      ]);
+
+      if($createLecturer){
+        flash('Lecture Created')->success();
+        return redirect()->route('lecturer.index');
+      }
     }
 
 

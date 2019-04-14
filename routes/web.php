@@ -31,7 +31,7 @@ Route::resources([
 ]);
 
 //Lecture
-Route::get('/lecturer','LecturerController@index');
+Route::get('/lecturer','LecturerController@index')->name('lecturer.index');
 Route::get('/lecturer/create','LecturerController@create')->name('lecturer.create');
 Route::post('/lecturer/store','LecturerController@store')->name('lecturer.store');
 
