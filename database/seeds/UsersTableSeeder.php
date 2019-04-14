@@ -118,8 +118,8 @@ class UsersTableSeeder extends Seeder
               'email_verified_at' =>Carbon::now(),
               'password' => bcrypt('password'),
             ),
-            5 => array(
-              'id' => 6,
+            6 => array(
+              'id' => 7,
               'role_id' => 2,
               'name' => 'Moses Ndungu',
               'email' => 'moses@gmail.com',
@@ -135,8 +135,8 @@ class UsersTableSeeder extends Seeder
               'password' => bcrypt('password'),
             ),
 
-            6 => array(
-              'id' => 7,
+            7 => array(
+              'id' => 8,
               'role_id' => 2,
               'name' => 'Joshua Okemwa',
               'email' => 'okemwa@kisiiuniversity.co.ke',
@@ -152,8 +152,8 @@ class UsersTableSeeder extends Seeder
               'password' => bcrypt('password'),
             ),
 
-            7 => array(
-              'id' => 8,
+            8 => array(
+              'id' => 9,
               'role_id' => 2,
               'name' => 'Teresa Abuya',
               'email' => 'teresa@kisiiuniversity.co.ke',
@@ -168,8 +168,8 @@ class UsersTableSeeder extends Seeder
               'email_verified_at' =>Carbon::now(),
               'password' => bcrypt('password'),
             ),
-            8 => array(
-              'id' => 9,
+            9 => array(
+              'id' => 10,
               'role_id' => 2,
               'name' => 'James Momanyi',
               'email' => 'mumanyi@kisiiuniversity.co.ke',
