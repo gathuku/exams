@@ -143,8 +143,12 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($user)
     {
-        //
+      $delete=User::where('id',$user)->delete();
+      if ($delete) {
+        flash('User Deleted');
+        return back();
+      }
     }
 }
