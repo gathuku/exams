@@ -11,10 +11,10 @@ class PdfController extends Controller
 {
 
     public function generateTranscript(){
-
+      $marks=Registerunit::where('regno',Auth::user()->regno)->get();
       //load transcript view
-      $pdf=PDF::loadview('pdf.transcript');
-      return $pdf->download('transcript.pdf');
+      $pdf=PDF::loadview('pdf.transcriptPdf');
+      return $pdf->download('transcriptPdf.pdf');
     }
 
     public function transcript()
