@@ -20,8 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-      //dd(auth()->user()->program);
-        $users=User::all();
+       //Fetch students
+        $users=User::where('role_id',1)->get();
         return view('users.index',compact('users'));
     }
 

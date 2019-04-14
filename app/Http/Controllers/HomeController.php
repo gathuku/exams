@@ -8,6 +8,7 @@ use App\Exam;
 use App\Unit;
 use App\Faculty;
 use App\Registerunit;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -35,14 +36,21 @@ class HomeController extends Controller
        $exam=Exam::all()->count();
 
       //units
-      $unit=Unit::all()->count();
+      $unit=Unit::where('program_id',Auth::user()->program_id)->count();
 
       //faculties
-      $fuculty=Faculty::all()->count();
+      $faculty=Faculty::all()->count();
+
+
 
       $registered=Registerunit::all()->count();
 
+      $retakes=Registerunit::where('grade','F')
+                            ->where('regno',Auth::user()->regno)
+                            ->count();
+      $retakesadmin=Registerunit::where('grade','F')->count();
+
        //Fetch units
-       return view('dashboard.index', compact('user','exam','unit','faculty','registered'));
+       return view('dashboard.index', compact('user','exam','unit','faculty','registered','retakes','retakesadmin'));
     }
 }

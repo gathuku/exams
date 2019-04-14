@@ -9,6 +9,7 @@
 
    </div>
    <div class="row">
+     @admin
      <div class="col-md-3">
        <div class="widget-small primary"><i class="icon fa fa-users fa-3x"></i>
          <div class="info">
@@ -17,11 +18,12 @@
          </div>
        </div>
      </div>
+    @endadmin
      <div class="col-md-3">
        <div class="widget-small info"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
          <div class="info">
            <h4>Faculty</h4>
-           <p><b></b></p>
+           <p><b>{{$faculty}}</b></p>
          </div>
        </div>
      </div>
@@ -62,11 +64,18 @@
      <div class="col-md-3">
        <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
          <div class="info">
+           @admin
            <h4>Total Retakes</h4>
-           <p><b>10</b></p>
+           <p><b>{{$retakesadmin}}</b></p>
+           @endadmin
+          @student
+          <h4>Your Retakes</h4>
+          <p><b>{{$retakes}}</b></p>
+          @endstudent
          </div>
        </div>
      </div>
+     @admin
      <div class="col-md-3">
        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
          <div class="info">
@@ -75,6 +84,7 @@
          </div>
        </div>
      </div>
+     @endadmin
    </div>
 
 
