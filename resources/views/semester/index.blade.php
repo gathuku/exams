@@ -50,8 +50,15 @@
                     @endif
 
                    <td>
-                   <a href="/semester/{{$semester->id}}/edit"><button class="btn btn-primary" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
-                   <a href="#"><button class="btn btn-info"><i class="fa fa-eye"></button></i></a>
+                   <a href="/semester/{{$semester->id}}/edit"><button class="btn btn-default" data_toggle="tooltip" text="Edit student"><i class="fa fa-pencil-square-o"></button></i></a>
+                  
+                    <form class="" action="/semester/{{$semester->id}}" method="post">
+                      <button class="btn btn-default" type="submit"><i class="fa fa-trash"></button></i>
+                        {!! method_field('delete') !!}
+                         @csrf
+                    </form>
+
+
 
                    </td>
                  </tr>

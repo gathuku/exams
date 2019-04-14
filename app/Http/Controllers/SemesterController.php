@@ -102,7 +102,7 @@ class SemesterController extends Controller
           'name' => 'required',
           'year' => 'required',
           'examDate' => 'required',
-          
+
       ]);
 
 
@@ -129,8 +129,12 @@ class SemesterController extends Controller
      * @param  \App\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Semester $semester)
+    public function destroy($semester)
     {
-        //
+        $delete=Semester::where('id',$semester)->delete();
+        if ($delete) {
+          flash('Semester Deleted');
+          return back();
+        }
     }
 }
