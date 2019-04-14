@@ -30,6 +30,13 @@ Route::resources([
 
 ]);
 
+//Lecture
+Route::get('/lecturer','LecturerController@index');
+Route::get('/lecturer/create','LecturerController@create')->name('lecturer.create');
+Route::post('/lecturer/store','LecturerController@store')->name('lecturer.store');
+
+
+
 Route::post('/unit/change','UnitController@unitChange')->name('unit-change');
 Route::post('/unit/register','RegisterunitController@saveUnits')->name('unit-register');
 
