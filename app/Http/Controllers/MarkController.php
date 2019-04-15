@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Mark;
 use App\Programme;
 use App\Registerunit;
+use App\Unit;
 use App\User;
+use Auth;
+use DB;
+use Nexmo;
 
 use App\Jobs\QueueNotification;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use AfricasTalking\SDK\AfricasTalking;
 
 class MarkController extends Controller
 {
@@ -20,12 +25,18 @@ class MarkController extends Controller
      */
     public function index()
     {
-        $courses=Programme::all();
+        //$courses=Programme::all();
 
         //Fetch all registered saveUnits
-          $registeredUnit=Registerunit::all();
+          $registeredUnit=DB::table('registerunits')
+                             ->join('allocations','registerunits.unit_id','=','allocations.unit_id')
+                             ->join('units','units.id','=','allocations.unit_id')
+                             ->where('lecturer_id',Auth::user()->id)
+                             ->get();
 
-        return view('mark.index',compact('courses','registeredUnit'));
+          //dd($registeredUnit);
+
+        return view('mark.index',compact('registeredUnit'));
     }
 
     /**
@@ -76,10 +87,17 @@ class MarkController extends Controller
            ]);
            //Send Notifications
            $regno=Registerunit::where('id',$key)->value('regno');
-           $user=User::where('regno',$regno)->value('email');
+           $phone=User::where('regno',$regno)->value('phone');
+           $unit=Registerunit::where('id',$key)->value('unit_id');
+           $unitname=Unit::where('id',$unit)->value('name');
+           $code=Unit::where('id',$unit)->value('code');
+           //dd($unitname);
+
+           //Send message
+            $this->sendMessage($phone,$value,$unitname,$code);
 
            //dd($value);
-           dispatch(new QueueNotification($user,$value));
+          // dispatch(new QueueNotification($user,$value));
 
 
          }
@@ -89,6 +107,16 @@ class MarkController extends Controller
       return back();
 
 
+    }
+
+    public function sendMessage($phone,$value,$unitname,$code)
+    {
+
+          Nexmo::message()->send([
+            'to'   => $phone,
+            'from' => '16105552344',
+            'text' => 'Hello, Your marks for '.$unitname.'('.$code.')'.'have been entered, You have scored '.$value.'',
+        ]);
     }
 
     /**

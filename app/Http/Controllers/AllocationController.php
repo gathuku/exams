@@ -39,7 +39,7 @@ class AllocationController extends Controller
                      ->get();
           $courses=Programme::where('faculty_id',Auth::user()->faculty_id)->get();
 
-          $lecturers=User::where('role_id',2)
+          $lecturers=User::whereIn('role_id',[2,3])
                          ->where('faculty_id',Auth::user()->faculty_id)
                          ->get();
 

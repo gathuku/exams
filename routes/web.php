@@ -60,3 +60,4 @@ Route::get('/payment','PaymentController@index');
 
 //Allocations
 Route::post('/allocation/fetch','AllocationController@unitFetch')->name('alloc.fetch');
+Route::get('sms','MarkController@sendMessage');

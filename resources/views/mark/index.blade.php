@@ -28,7 +28,7 @@
                  <tr>
                    <th>ID</th>
                    <th>Regno</th>
-                   <th>unit</th>
+                   <th>Unit Name</th>
                    <th>Mark</th>
                    <th>Grade</th>
 
@@ -43,7 +43,7 @@
                  <tr>
                    <td>{{$value->id}}</td>
                    <td>{{$value->regno}}</td>
-                   <td>{{$value->unit->name}}</td>
+                   <td>{{$value->name}}</td>
                    <td>
 
                    <input value="{{$value->mark}}" class="form-control col-md-3 mark_input" type="text" name="{{$value->id}}" value="">
