@@ -73,7 +73,10 @@
              <li><a class="app-menu__item" href="/lecturer"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Lecturer</span></a></li>
 
               <li><a class="app-menu__item" href="/retakes"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Retakes</span></a></li>
+             {{--
              <li><a class="app-menu__item" href="/setting"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Settings</span></a></li>
+             --}}
+             <li><a class="app-menu__item" href="/payment"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Payments</span></a></li>
               @endadmin
               @student
               <li><a class="app-menu__item" href="/session"><i class="app-menu__icon fa fa-check-square-o"></i><span class="app-menu__label">Session</span></a></li>

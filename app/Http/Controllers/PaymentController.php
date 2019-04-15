@@ -12,6 +12,12 @@ class PaymentController extends Controller
 {
 
    public $unitID;
+
+   public function index(){
+      $payments=Payment::all();
+    // dd($payments);
+     return view('payment.index',compact('payments'));
+   }
     public function mpesaExpress(Request $request)
     {
        $validateData=$request->validate([
@@ -20,17 +26,19 @@ class PaymentController extends Controller
 
       $phone=$request->input('phone');
       $this->unitID=$request->input('unitID');
+    //  dd($this->unitID);
 
       $expressResponse=Mpesa::express(1,$phone,'24242524','Testing Payment');
 
-    //  dd($expressResponse);
+    flash('Request sent, Kindly Check your phone and Enter pin')->success();
+    return back();
     }
 
     public function lnmocallback(Request $request)
     {
 
     $data=$this->format_lmno($request->getContent());
-
+    \Log::info($this->unitID);
      //save to database
     Payment::create([
       'amount' =>$data->Amount,
@@ -63,7 +71,6 @@ class PaymentController extends Controller
         	$master->CheckoutRequestID = $tmp->CheckoutRequestID;
         	$master->ResultDesc = $tmp->ResultDesc;
 
-        	//Returns an object
         	return $master;
 
 }

@@ -18,7 +18,7 @@
        <div class="col-md-12">
          <div class="tile">
            <div class="tile-body">
-        
+
             <br>
             <br>
             <form class="" action="{{route('mark.store')}}" method="post">
@@ -26,10 +26,10 @@
              <table class="table table-hover " id="marksTable">
                <thead>
                  <tr>
-                   <th>#</th>
+                   <th>ID</th>
                    <th>Regno</th>
                    <th>unit</th>
-                   <th>mark</th>
+                   <th>Mark</th>
                    <th>Grade</th>
 
 
@@ -41,7 +41,7 @@
 
 
                  <tr>
-                   <td>#</td>
+                   <td>{{$value->id}}</td>
                    <td>{{$value->regno}}</td>
                    <td>{{$value->unit->name}}</td>
                    <td>
