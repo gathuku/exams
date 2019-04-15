@@ -11,13 +11,15 @@ use App\Registerunit;
 class PaymentController extends Controller
 {
 
-   public $unitID;
+   private $unit_id;
 
-   public function index(){
+   public function index()
+   {
       $payments=Payment::all();
     // dd($payments);
      return view('payment.index',compact('payments'));
    }
+
     public function mpesaExpress(Request $request)
     {
        $validateData=$request->validate([
@@ -25,8 +27,10 @@ class PaymentController extends Controller
        ]);
 
       $phone=$request->input('phone');
-      $this->unitID=$request->input('unitID');
-    //  dd($this->unitID);
+      $this->unit_id=$request->input('unitID');
+    // dd($this->unit_id);
+
+     // dd($this->store());
 
       $expressResponse=Mpesa::express(1,$phone,'24242524','Testing Payment');
 
@@ -38,24 +42,29 @@ class PaymentController extends Controller
     {
 
     $data=$this->format_lmno($request->getContent());
-    \Log::info($this->unitID);
-     //save to database
-    Payment::create([
-      'amount' =>$data->Amount,
-      'receipt_number'=>$data->MpesaReceiptNumber,
-      'phone'=>$data->PhoneNumber,
-      'paid_for'=>$this->unitID,
-      'paid_at'=>$data->TransactionDate,
-    ]);
 
-   //Update Paid to true
-    Registerunit::where('id',$this->unitID)->update([
-      'paid'=>1,
-    ]);
+     $this->store($data);
 
     }
 
-       public  function format_lmno($data){
+    public function store($data)
+     {
+       //save to database
+      Payment::create([
+        'amount' =>$data->Amount,
+        'receipt_number'=>$data->MpesaReceiptNumber,
+        'phone'=>$data->PhoneNumber,
+        'paid_for'=>$this->unit_id,
+        'paid_at'=>$data->TransactionDate,
+      ]);
+
+     //Update Paid to true
+      Registerunit::where('id',$this->unit_id)->update([
+        'paid'=>1,
+      ]);
+     }
+
+     public  function format_lmno($data){
          //$data is the json encoded pqyload from mpesa.
         	$data = json_decode($data);
         	$tmp = $data->Body->stkCallback;

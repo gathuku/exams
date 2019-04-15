@@ -6,7 +6,7 @@
          <h1><i class="fa fa-th-list"></i> Payments</h1>
 
        </div>
-  
+
      </div>
 
      @include('partials.error')
@@ -33,7 +33,7 @@
                 @foreach($payments as $payment)
                  <tr>
                    <td>{{$payment->id}}</td>
-
+                    <td>{{$payment->paid_for}}</td>
                    <td>{{$payment->amount}}</td>
                    <td>{{$payment->receipt_number}}</td>
                    <td>{{$payment->phone}}</td>

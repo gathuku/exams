@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             'regno' => 'IN14/20358/15',
             'phone' => '254705112855',
             'type' => 'GSS',
-            'in_session' =>false,
+            'in_session' =>true,
             'program_id' => 1,
             'faculty_id' => 1,
             'year_id' =>1,
