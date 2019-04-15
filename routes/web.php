@@ -27,6 +27,7 @@ Route::resources([
   'registerunit' => 'RegisterunitController',
   'mark' => 'MarkController',
   'session' => 'SessionController',
+  'allocation' => 'AllocationController',
 
 
 ]);
@@ -56,3 +57,6 @@ Route::get('/retakes/apply/{id}','RegisterunitController@applyRetakes')->name('a
 //Payment Routes
 Route::post('/retakes/payment','PaymentController@mpesaExpress')->name('pay-retakes');
 Route::get('/payment','PaymentController@index');
+
+//Allocations
+Route::post('/allocation/fetch','AllocationController@unitFetch')->name('alloc.fetch');
